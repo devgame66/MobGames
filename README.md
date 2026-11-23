@@ -14,7 +14,7 @@
 2. **图标网格**：其余 App，每行 3 个，每个有图标、名字（最多两行）和 GET 按钮。
 3. **Play instantly — no download**：我们网站 peersgames.com 上的 H5 小游戏，分 FPS 和摩托两行，左右滑动。
 
-点 App 去 Google Play（带 `referrer=utm_source=more&utm_medium=banner`）；iPhone / iPad 上自动改去 App Store，没有 iOS 版本的游戏在 iPhone 上隐藏。
+三块里的每个游戏都带白底 "Ad" 小标签（见文末"政策注意"）。点 App 去 Google Play（带 `referrer=utm_source=more&utm_medium=banner`）；iPhone / iPad 上自动改去 App Store，没有 iOS 版本的游戏在 iPhone 上隐藏。
 
 ## 怎么修改
 
@@ -84,6 +84,7 @@ node build.js
 
 这个页面在 App 里打开，算 App 内容的一部分：
 
+- **每个推广位都要有 "Ad" 标签。** 在 App 里推广其他游戏（包括自己的）和网站，按 Google Play 的广告政策都算广告，必须清楚标明。`build.js` 里的 `AD` 会自动加在主推卡片右上角、网格每个图标的左上角和每张 H5 卡片的左上角；以后新增任何推广样式，也要带上 `AD`。
 - H5 区块必须**写明是网站**（现在写的是 "Free browser games on our website, peersgames.com"），按钮用 ▶ / Play，**不要**做成 "Download"、"Install" 或系统提示的样子。
 - 只放 13 岁以上、和 App 分级相符的游戏；如果某款 App 的目标受众包含 13 岁以下（Designed for Families），那款 App 不要打开这个页面。
 - H5 只选 GamePix 游戏的另一个原因：我们在 GamePix 的广告目前没开，在 App 的 WebView 里玩不会产生网页广告流量。GamePix 广告开通后，最好让 App 把 peersgames.com 的链接交给外部浏览器（Android Custom Tabs、iOS SFSafariViewController）打开。

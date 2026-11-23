@@ -66,8 +66,11 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&l
 const utm = (c) => `?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=${c}`;
 const play = (pkg) => `https://play.google.com/store/apps/details?id=${pkg}&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner`;
 const cover = (slug) => `https://img.gamepix.com/games/${slug}/cover/${slug}.png?w=240`;
-const tile = (a, i) => `<a class="tile" href="${play(a.pkg)}" data-app="${i}" data-ios="${a.ios}"><img src="icon/${a.pkg}.jpg" alt="" width="72" height="72"${i > 5 ? ' loading="lazy"' : ''}><b>${esc(a.name)}</b><i>GET</i></a>`;
-const card = ([slug, name], key) => `<a class="card" href="https://peersgames.com/game/${slug}/${utm(key)}" data-h5="${slug}"><span class="th"><img src="${cover(slug)}" alt="" width="240" height="180" loading="lazy"><i>&#9654;</i></span><b>${esc(name)}</b></a>`;
+// Every promotion carries an "Ad" mark (Google Play counts cross-promotion
+// inside an app as an ad, and ads must be clearly labelled).
+const AD = '<em class="ad">Ad</em>';
+const tile = (a, i) => `<a class="tile" href="${play(a.pkg)}" data-app="${i}" data-ios="${a.ios}"><span class="ic"><img src="icon/${a.pkg}.jpg" alt="" width="72" height="72"${i > 5 ? ' loading="lazy"' : ''}>${AD}</span><b>${esc(a.name)}</b><i>GET</i></a>`;
+const card = ([slug, name], key) => `<a class="card" href="https://peersgames.com/game/${slug}/${utm(key)}" data-h5="${slug}"><span class="th"><img src="${cover(slug)}" alt="" width="240" height="180" loading="lazy">${AD}<i>&#9654;</i></span><b>${esc(name)}</b></a>`;
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -93,7 +96,9 @@ h1 small{display:block;font-size:12px;font-weight:400;color:#8f97ad;margin-top:2
 h2{font-size:16px;font-weight:800}
 .sub{font-size:12px;color:#8f97ad;margin-top:2px}
 .hero{display:block;padding:12px;border-radius:16px;border:1px solid #33407a;background:#1e2a55;background:linear-gradient(135deg,#25356e 0%,#3a2060 100%)}
-.lbl{display:block;font-size:11px;font-weight:800;letter-spacing:.8px;color:#ffb648;text-transform:uppercase}
+.ad{display:inline-block;padding:0 4px;border-radius:3px;background:#fff;color:#0e1220;font-style:normal;font-size:10px;font-weight:700;line-height:14px;letter-spacing:0;text-transform:none;vertical-align:middle}
+.lbl{display:flex;align-items:center;font-size:11px;font-weight:800;letter-spacing:.8px;color:#ffb648;text-transform:uppercase}
+.lbl .ad{margin-left:auto}
 .lbl i{margin-left:6px;padding:0 7px;border-radius:9px;background:#ffb648;color:#1a1200;font-style:normal;line-height:18px;display:inline-block}
 .hero .r{display:flex;align-items:center;margin-top:10px}
 .hero .r img{flex:none;width:72px;height:72px;border-radius:17px;background:#1b2133}
@@ -103,7 +108,9 @@ h2{font-size:16px;font-weight:800}
 .hero .cta{display:block;margin-top:12px;padding:10px 0;border-radius:12px;background:#2fbf5b;color:#fff;text-align:center;font-weight:800;font-size:15px}
 .apps{display:flex;flex-wrap:wrap;margin:6px -4px 0}
 .tile{width:33.333%;padding:10px 4px 12px;text-align:center}
-.tile img{display:block;width:72px;height:72px;margin:0 auto;border-radius:18px;background:#1b2133}
+.ic{display:block;position:relative;width:72px;margin:0 auto}
+.tile img{display:block;width:72px;height:72px;border-radius:18px;background:#1b2133}
+.ic .ad,.th .ad{position:absolute;left:4px;top:4px}
 .tile b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;height:30px;margin-top:7px;font-size:12px;line-height:15px;font-weight:600}
 .tile i{display:inline-block;margin-top:6px;padding:0 14px;border-radius:11px;background:#2fbf5b;color:#fff;font-style:normal;font-weight:800;font-size:11px;line-height:22px}
 .web{margin:10px -12px 0;padding:16px 0 6px;background:#161c30;border-top:1px solid #262f4b;border-bottom:1px solid #262f4b}
@@ -125,7 +132,7 @@ h2{font-size:16px;font-weight:800}
 <header><h1>Featured Games<small>Free games from our studio</small></h1></header>
 
 <a class="hero" href="${play(featured.pkg)}" data-app="featured" data-ios="${featured.ios}">
-  <span class="lbl">Featured${featured.badge ? `<i>${esc(featured.badge)}</i>` : ''}</span>
+  <span class="lbl">Featured${featured.badge ? `<i>${esc(featured.badge)}</i>` : ''}${AD}</span>
   <span class="r"><img src="icon/${featured.pkg}.jpg" alt="" width="72" height="72"><span class="t"><b>${esc(featured.name)}</b><span>${esc(featured.line)}</span></span></span>
   <span class="cta">Get it free</span>
 </a>
