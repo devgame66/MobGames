@@ -6,15 +6,14 @@ const path = require('path');
 
 // ---------------------------------------------------------------- data
 
-// The game on the big card at the top. ios: App Store id, or '' when there is
+// The game on the card at the top. ios: App Store id, or '' when there is
 // no iPhone version (the card is then hidden on iPhone and iPad).
-// banner: img/<name>.jpg, 640 x 360 (see README).
+// badge: a word beside the "Featured" label, or '' for none.
 const featured = {
   name: 'Bullet Fury: PvP Online 3D',
   line: 'Real-time online 3D FPS battles with friends around the world',
   pkg: 'com.online.pvp.shooter',
   ios: '',
-  banner: 'img/featured-bullet-fury.jpg',
   badge: 'NEW',
 };
 
@@ -59,7 +58,6 @@ const web = [
 for (const a of [featured, ...apps]) {
   if (!fs.existsSync(path.join(__dirname, 'icon', `${a.pkg}.jpg`))) throw new Error(`missing icon/${a.pkg}.jpg (run tools/images.py ${a.pkg})`);
 }
-if (!fs.existsSync(path.join(__dirname, featured.banner))) throw new Error(`missing ${featured.banner}`);
 if (apps.some((a) => a.pkg === featured.pkg)) throw new Error('the featured game should not also be in the grid');
 
 // ---------------------------------------------------------------- page
@@ -94,16 +92,15 @@ h1{font-size:20px;font-weight:800}
 h1 small{display:block;font-size:12px;font-weight:400;color:#8f97ad;margin-top:2px}
 h2{font-size:16px;font-weight:800}
 .sub{font-size:12px;color:#8f97ad;margin-top:2px}
-.hero{display:block;border-radius:16px;overflow:hidden;background:#161c30;border:1px solid #262f4b}
-.ban{display:block;position:relative;padding-top:56.25%;background:#1b2133}
-.ban img{position:absolute;left:0;top:0;width:100%;height:100%}
-.ban small{position:absolute;left:12px;top:12px;padding:0 9px;border-radius:10px;background:#ffb648;color:#1a1200;font-size:11px;font-weight:800;letter-spacing:.6px;line-height:20px}
-.hero .r{display:flex;align-items:center;padding:12px 12px 0}
-.hero .r img{flex:none;width:64px;height:64px;border-radius:15px;margin-top:-34px;border:3px solid #161c30;background:#1b2133}
+.hero{display:block;padding:12px;border-radius:16px;border:1px solid #33407a;background:#1e2a55;background:linear-gradient(135deg,#25356e 0%,#3a2060 100%)}
+.lbl{display:block;font-size:11px;font-weight:800;letter-spacing:.8px;color:#ffb648;text-transform:uppercase}
+.lbl i{margin-left:6px;padding:0 7px;border-radius:9px;background:#ffb648;color:#1a1200;font-style:normal;line-height:18px;display:inline-block}
+.hero .r{display:flex;align-items:center;margin-top:10px}
+.hero .r img{flex:none;width:72px;height:72px;border-radius:17px;background:#1b2133}
 .hero .t{margin-left:12px;min-width:0}
 .hero b{display:block;font-size:17px;line-height:1.2;font-weight:800}
-.hero .t span{display:block;font-size:12px;color:#aab2c8;margin-top:3px}
-.hero .cta{display:block;margin:12px;padding:11px 0;border-radius:12px;background:#2fbf5b;color:#fff;text-align:center;font-weight:800;font-size:15px}
+.hero .t span{display:block;font-size:12px;color:#c3cbe2;margin-top:3px}
+.hero .cta{display:block;margin-top:12px;padding:10px 0;border-radius:12px;background:#2fbf5b;color:#fff;text-align:center;font-weight:800;font-size:15px}
 .apps{display:flex;flex-wrap:wrap;margin:6px -4px 0}
 .tile{width:33.333%;padding:10px 4px 12px;text-align:center}
 .tile img{display:block;width:72px;height:72px;margin:0 auto;border-radius:18px;background:#1b2133}
@@ -128,8 +125,8 @@ h2{font-size:16px;font-weight:800}
 <header><h1>Featured Games<small>Free games from our studio</small></h1></header>
 
 <a class="hero" href="${play(featured.pkg)}" data-app="featured" data-ios="${featured.ios}">
-  <span class="ban"><img src="${featured.banner}" alt="" width="640" height="360">${featured.badge ? `<small>${esc(featured.badge)}</small>` : ''}</span>
-  <span class="r"><img src="icon/${featured.pkg}.jpg" alt="" width="64" height="64"><span class="t"><b>${esc(featured.name)}</b><span>${esc(featured.line)}</span></span></span>
+  <span class="lbl">Featured${featured.badge ? `<i>${esc(featured.badge)}</i>` : ''}</span>
+  <span class="r"><img src="icon/${featured.pkg}.jpg" alt="" width="72" height="72"><span class="t"><b>${esc(featured.name)}</b><span>${esc(featured.line)}</span></span></span>
   <span class="cta">Get it free</span>
 </a>
 
