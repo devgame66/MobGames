@@ -11,7 +11,7 @@
 从上到下三块：
 
 1. **主推卡片**：一款重点推广的游戏，渐变色背景（纯 CSS，不用图片），有"Featured"标签和 NEW 角标（可去掉）、图标、名字、一句介绍和"Get it free"按钮。为了节省篇幅和流量，不放横幅大图。
-2. **图标网格**：其余 App，每行 3 个，每个有图标、名字（最多两行）和 GET 按钮。
+2. **图标网格**：其余 App，手机上每行 3 个（屏幕 480px 以上每行 4 个），每个有图标、名字（最多两行）和 GET 按钮。
 3. **Play instantly — no download**：我们网站 peersgames.com 上的 H5 小游戏，分 FPS 和摩托两行，左右滑动。
 
 三块里的每个游戏都带红色 "AD" 斜角标（沿用最初 FREE 按钮的样式，见文末"政策注意"）。点 App 去 Google Play（带 `referrer=utm_source=more&utm_medium=banner`）；iPhone / iPad 上自动改去 App Store，没有 iOS 版本的游戏在 iPhone 上隐藏。
