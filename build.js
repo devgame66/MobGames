@@ -66,11 +66,12 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&l
 const utm = (c) => `?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=${c}`;
 const play = (pkg) => `https://play.google.com/store/apps/details?id=${pkg}&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner`;
 const cover = (slug) => `https://img.gamepix.com/games/${slug}/cover/${slug}.png?w=240`;
-// Every promotion carries an "Ad" mark (Google Play counts cross-promotion
-// inside an app as an ad, and ads must be clearly labelled).
-const AD = '<em class="ad">Ad</em>';
-const tile = (a, i) => `<a class="tile" href="${play(a.pkg)}" data-app="${i}" data-ios="${a.ios}"><span class="ic"><img src="icon/${a.pkg}.jpg" alt="" width="72" height="72"${i > 5 ? ' loading="lazy"' : ''}>${AD}</span><b>${esc(a.name)}</b><i>GET</i></a>`;
-const card = ([slug, name], key) => `<a class="card" href="https://peersgames.com/game/${slug}/${utm(key)}" data-h5="${slug}"><span class="th"><img src="${cover(slug)}" alt="" width="240" height="180" loading="lazy">${AD}<i>&#9654;</i></span><b>${esc(name)}</b></a>`;
+// Every promotion carries an "AD" corner ribbon (Google Play counts
+// cross-promotion inside an app as an ad, and ads must be clearly labelled):
+// on the GET / Get it free buttons, and on the corner of each web game card.
+const AD = '<em class="rb">AD</em>';
+const tile = (a, i) => `<a class="tile" href="${play(a.pkg)}" data-app="${i}" data-ios="${a.ios}"><img src="icon/${a.pkg}.jpg" alt="" width="72" height="72"${i > 5 ? ' loading="lazy"' : ''}><b>${esc(a.name)}</b><i>GET${AD}</i></a>`;
+const card = ([slug, name], key) => `<a class="card" href="https://peersgames.com/game/${slug}/${utm(key)}" data-h5="${slug}"><span class="th"><img src="${cover(slug)}" alt="" width="240" height="180" loading="lazy"><i>&#9654;</i></span><b>${esc(name)}</b>${AD}</a>`;
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -96,23 +97,24 @@ h1 small{display:block;font-size:12px;font-weight:400;color:#8f97ad;margin-top:2
 h2{font-size:16px;font-weight:800}
 .sub{font-size:12px;color:#8f97ad;margin-top:2px}
 .hero{display:block;padding:12px;border-radius:16px;border:1px solid #33407a;background:#1e2a55;background:linear-gradient(135deg,#25356e 0%,#3a2060 100%)}
-.ad{display:inline-block;padding:0 4px;border-radius:3px;background:#fff;color:#0e1220;font-style:normal;font-size:10px;font-weight:700;line-height:14px;letter-spacing:0;text-transform:none;vertical-align:middle}
-.lbl{display:flex;align-items:center;font-size:11px;font-weight:800;letter-spacing:.8px;color:#ffb648;text-transform:uppercase}
-.lbl .ad{margin-left:auto}
+/* "AD" ribbon across the top-right corner of a button or card (the parent
+   needs position:relative and overflow:hidden). */
+.rb{position:absolute;top:3px;right:-12px;width:40px;transform:rotate(45deg);background:#e53935;color:#fff;font-style:normal;font-size:8px;font-weight:800;line-height:10px;letter-spacing:.4px;text-align:center}
+.lbl{display:block;font-size:11px;font-weight:800;letter-spacing:.8px;color:#ffb648;text-transform:uppercase}
 .lbl i{margin-left:6px;padding:0 7px;border-radius:9px;background:#ffb648;color:#1a1200;font-style:normal;line-height:18px;display:inline-block}
 .hero .r{display:flex;align-items:center;margin-top:10px}
 .hero .r img{flex:none;width:72px;height:72px;border-radius:17px;background:#1b2133}
 .hero .t{margin-left:12px;min-width:0}
 .hero b{display:block;font-size:17px;line-height:1.2;font-weight:800}
 .hero .t span{display:block;font-size:12px;color:#c3cbe2;margin-top:3px}
-.hero .cta{display:block;margin-top:12px;padding:10px 0;border-radius:12px;background:#2fbf5b;color:#fff;text-align:center;font-weight:800;font-size:15px}
+.hero .cta{display:block;position:relative;overflow:hidden;margin-top:12px;padding:10px 0;border-radius:12px;background:#2fbf5b;color:#fff;text-align:center;font-weight:800;font-size:15px}
+.cta .rb{top:7px;right:-17px;width:58px;font-size:10px;line-height:14px}
+.card>.rb{top:7px;right:-16px;width:56px;font-size:9px;line-height:13px}
 .apps{display:flex;flex-wrap:wrap;margin:6px -4px 0}
 .tile{width:33.333%;padding:10px 4px 12px;text-align:center}
-.ic{display:block;position:relative;width:72px;margin:0 auto}
-.tile img{display:block;width:72px;height:72px;border-radius:18px;background:#1b2133}
-.ic .ad,.th .ad{position:absolute;left:4px;top:4px}
+.tile img{display:block;width:72px;height:72px;margin:0 auto;border-radius:18px;background:#1b2133}
 .tile b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;height:30px;margin-top:7px;font-size:12px;line-height:15px;font-weight:600}
-.tile i{display:inline-block;margin-top:6px;padding:0 14px;border-radius:11px;background:#2fbf5b;color:#fff;font-style:normal;font-weight:800;font-size:11px;line-height:22px}
+.tile i{display:inline-block;position:relative;overflow:hidden;margin-top:6px;padding:0 20px 0 16px;border-radius:7px;background:#2fbf5b;color:#fff;font-style:normal;font-weight:800;font-size:12px;line-height:26px}
 .web{margin:10px -12px 0;padding:16px 0 6px;background:#161c30;border-top:1px solid #262f4b;border-bottom:1px solid #262f4b}
 .web .hd{padding:0 16px}
 .rowh{display:flex;align-items:baseline;justify-content:space-between;padding:0 16px;margin:14px 0 8px}
@@ -120,7 +122,7 @@ h2{font-size:16px;font-weight:800}
 .rowh a{font-size:12px;color:#8f97ad}
 .swipe{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scroll-padding:0 16px;padding:0 16px 10px;scrollbar-width:none}
 .swipe::-webkit-scrollbar{display:none}
-.card{flex:none;width:148px;margin-right:10px;scroll-snap-align:start;border-radius:10px;overflow:hidden;background:#0e1220}
+.card{flex:none;position:relative;width:148px;margin-right:10px;scroll-snap-align:start;border-radius:10px;overflow:hidden;background:#0e1220}
 .th{display:block;position:relative;padding-top:75%;background:#1b2133}
 .th img{position:absolute;left:0;top:0;width:100%;height:100%}
 .th i{position:absolute;right:6px;bottom:6px;width:26px;height:26px;border-radius:50%;background:#ffb648;color:#1a1200;font-style:normal;font-size:11px;line-height:26px;text-align:center;padding-left:2px}
@@ -132,9 +134,9 @@ h2{font-size:16px;font-weight:800}
 <header><h1>Featured Games<small>Free games from our studio</small></h1></header>
 
 <a class="hero" href="${play(featured.pkg)}" data-app="featured" data-ios="${featured.ios}">
-  <span class="lbl">Featured${featured.badge ? `<i>${esc(featured.badge)}</i>` : ''}${AD}</span>
+  <span class="lbl">Featured${featured.badge ? `<i>${esc(featured.badge)}</i>` : ''}</span>
   <span class="r"><img src="icon/${featured.pkg}.jpg" alt="" width="72" height="72"><span class="t"><b>${esc(featured.name)}</b><span>${esc(featured.line)}</span></span></span>
-  <span class="cta">Get it free</span>
+  <span class="cta">Get it free${AD}</span>
 </a>
 
 <div class="apps">
