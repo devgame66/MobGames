@@ -1,151 +1,131 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns = "http://www.w3.org/1999/xhtml"><head><meta http-equiv = "Content-Type" content = "text/html; charset=UTF-8"/><meta http-equiv = "Expires" content = "0"/><meta http-equiv = "Pragma" content = "no-cache"/><meta http-equiv = "Cache-Control" content = "no-store,no-cache"/><meta name = "Handheldfriendly" content = "true"/><meta name = "viewport" content = "width=device-width, initial-scale=1.0, user-scalable=no"/><meta name = 'robots' content = 'all'/><meta name = "keywords" contect = "doodle, mobile, doodlemobile, game, games"/><meta name = "description" content = "Make People's Mobile Life More Connected Through Games."/><title> Featured Games </title><style>* {
-margin: 0;
-padding: 0;
-border: none;
-list-style: none;
-text-indent: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Make People's Mobile Life More Connected Through Games.">
+<meta name="theme-color" content="#0e1220">
+<title>Featured Games</title>
+<!-- Built by build.js; edit that file, not this one. -->
+<style>
+/* One small page for low-end phones: system fonts, no web fonts, no blur or
+   animation, fixed image boxes so nothing moves while pictures load. */
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:#0e1220;color:#e9ecf5;font:14px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding-bottom:16px}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:rgba(255,255,255,.08)}
+[hidden]{display:none!important}
+.wrap{max-width:640px;margin:0 auto;padding:0 12px}
+header{padding:16px 4px 10px}
+h1{font-size:20px;font-weight:800}
+h1 small{display:block;font-size:12px;font-weight:400;color:#8f97ad;margin-top:2px}
+h2{font-size:16px;font-weight:800}
+.sub{font-size:12px;color:#8f97ad;margin-top:2px}
+.hero{display:block;padding:12px;border-radius:16px;border:1px solid #33407a;background:#1e2a55;background:linear-gradient(135deg,#25356e 0%,#3a2060 100%)}
+/* "AD" ribbon across the top-right corner of a button or card (the parent
+   needs position:relative and overflow:hidden). */
+.rb{position:absolute;top:3px;right:-12px;width:40px;transform:rotate(45deg);background:#e53935;color:#fff;font-style:normal;font-size:8px;font-weight:800;line-height:10px;letter-spacing:.4px;text-align:center}
+.lbl{display:block;font-size:11px;font-weight:800;letter-spacing:.8px;color:#ffb648;text-transform:uppercase}
+.lbl i{margin-left:6px;padding:0 7px;border-radius:9px;background:#ffb648;color:#1a1200;font-style:normal;line-height:18px;display:inline-block}
+.hero .r{display:flex;align-items:center;margin-top:10px}
+.hero .r img{flex:none;width:72px;height:72px;border-radius:17px;background:#1b2133}
+.hero .t{margin-left:12px;min-width:0}
+.hero b{display:block;font-size:17px;line-height:1.2;font-weight:800}
+.hero .t span{display:block;font-size:12px;color:#c3cbe2;margin-top:3px}
+.hero .cta{display:block;position:relative;overflow:hidden;margin-top:12px;padding:10px 0;border-radius:12px;background:#2fbf5b;color:#fff;text-align:center;font-weight:800;font-size:15px}
+.cta .rb{top:7px;right:-17px;width:58px;font-size:10px;line-height:14px}
+.card>.rb{top:7px;right:-16px;width:56px;font-size:9px;line-height:13px}
+.apps{display:flex;flex-wrap:wrap;margin:6px -4px 0}
+.tile{width:33.333%;padding:10px 4px 12px;text-align:center}
+.tile img{display:block;width:72px;height:72px;margin:0 auto;border-radius:18px;background:#1b2133}
+.tile b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;height:30px;margin-top:7px;font-size:12px;line-height:15px;font-weight:600}
+.tile i{display:inline-block;position:relative;overflow:hidden;margin-top:6px;padding:0 20px 0 16px;border-radius:7px;background:#2fbf5b;color:#fff;font-style:normal;font-weight:800;font-size:12px;line-height:26px}
+.web{margin:10px -12px 0;padding:16px 0 6px;background:#161c30;border-top:1px solid #262f4b;border-bottom:1px solid #262f4b}
+.web .hd{padding:0 16px}
+.rowh{display:flex;align-items:baseline;justify-content:space-between;padding:0 16px;margin:14px 0 8px}
+.rowh h3{font-size:12px;font-weight:700;color:#ffb648;text-transform:uppercase;letter-spacing:.6px}
+.rowh a{font-size:12px;color:#8f97ad}
+.swipe{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scroll-padding:0 16px;padding:0 16px 10px;scrollbar-width:none}
+.swipe::-webkit-scrollbar{display:none}
+.card{flex:none;position:relative;width:148px;margin-right:10px;scroll-snap-align:start;border-radius:10px;overflow:hidden;background:#0e1220}
+.th{display:block;position:relative;padding-top:75%;background:#1b2133}
+.th img{position:absolute;left:0;top:0;width:100%;height:100%}
+.th i{position:absolute;right:6px;bottom:6px;width:26px;height:26px;border-radius:50%;background:#ffb648;color:#1a1200;font-style:normal;font-size:11px;line-height:26px;text-align:center;padding-left:2px}
+.card b{display:block;padding:6px 8px 8px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><h1>Featured Games<small>Free games from our studio</small></h1></header>
 
-body {
-font-family: Arial, Helvetica, sans-serif;
-}
+<a class="hero" href="https://play.google.com/store/apps/details?id=com.online.pvp.shooter&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="featured" data-ios="">
+  <span class="lbl">Featured<i>NEW</i></span>
+  <span class="r"><img src="icon/com.online.pvp.shooter.jpg" alt="" width="72" height="72"><span class="t"><b>Bullet Fury: PvP Online 3D</b><span>Real-time online 3D FPS battles with friends around the world</span></span></span>
+  <span class="cta">Get it free<em class="rb">AD</em></span>
+</a>
 
-a, a: hover {
-text-decoration: none;
-}
+<div class="apps">
+<a class="tile" href="https://play.google.com/store/apps/details?id=com.ta.strike.ops&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="0" data-ios="1547911490"><img src="icon/com.ta.strike.ops.jpg" alt="" width="72" height="72"><b>FPS Strike Ops: Modern Arena</b><i>GET<em class="rb">AD</em></i></a>
+<a class="tile" href="https://play.google.com/store/apps/details?id=com.zombieshooting.survivalhunter.gun3d&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="1" data-ios="1480803816"><img src="icon/com.zombieshooting.survivalhunter.gun3d.jpg" alt="" width="72" height="72"><b>Zombie 3D Gun Trigger: PvP</b><i>GET<em class="rb">AD</em></i></a>
+<a class="tile" href="https://play.google.com/store/apps/details?id=com.fun.marvelat.strikeforce.heroes&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="2" data-ios="1551770851"><img src="icon/com.fun.marvelat.strikeforce.heroes.jpg" alt="" width="72" height="72"><b>Pro Sniper: PvP Gunfight 3D</b><i>GET<em class="rb">AD</em></i></a>
+<a class="tile" href="https://play.google.com/store/apps/details?id=com.gun.hero.survivorio&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="3" data-ios="1480803816"><img src="icon/com.gun.hero.survivorio.jpg" alt="" width="72" height="72"><b>Hero Survival - Shooter 3D</b><i>GET<em class="rb">AD</em></i></a>
+<a class="tile" href="https://play.google.com/store/apps/details?id=com.freeshooting.specialforces.war3d&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="4" data-ios="1547913326"><img src="icon/com.freeshooting.specialforces.war3d.jpg" alt="" width="72" height="72"><b>Special Ops: PvP Sniper Shooter</b><i>GET<em class="rb">AD</em></i></a>
+<a class="tile" href="https://play.google.com/store/apps/details?id=com.devgame66.csshot&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="5" data-ios="1499786854"><img src="icon/com.devgame66.csshot.jpg" alt="" width="72" height="72"><b>Gun Strike: FPS Shooting Games</b><i>GET<em class="rb">AD</em></i></a>
+<a class="tile" href="https://play.google.com/store/apps/details?id=com.racingmoto.trafficrider.bikerace&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="6" data-ios="1480803816"><img src="icon/com.racingmoto.trafficrider.bikerace.jpg" alt="" width="72" height="72" loading="lazy"><b>Traffic Moto Rider: Bike Race</b><i>GET<em class="rb">AD</em></i></a>
+<a class="tile" href="https://play.google.com/store/apps/details?id=freegames.zombiesniper.deadtrigger&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="7" data-ios="1480803816"><img src="icon/freegames.zombiesniper.deadtrigger.jpg" alt="" width="72" height="72" loading="lazy"><b>Zombie Trigger 3D Gun Shooter</b><i>GET<em class="rb">AD</em></i></a>
+<a class="tile" href="https://play.google.com/store/apps/details?id=com.shootinggames.sniper3d.assassin&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="8" data-ios="1551770851"><img src="icon/com.shootinggames.sniper3d.assassin.jpg" alt="" width="72" height="72" loading="lazy"><b>Sniper 3D Gun Shooter: Offline</b><i>GET<em class="rb">AD</em></i></a>
+<a class="tile" href="https://play.google.com/store/apps/details?id=com.gunshooting.counterstrike.fps&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="9" data-ios="1547913442"><img src="icon/com.gunshooting.counterstrike.fps.jpg" alt="" width="72" height="72" loading="lazy"><b>Frontline Shooter: PvP</b><i>GET<em class="rb">AD</em></i></a>
+<a class="tile" href="https://play.google.com/store/apps/details?id=com.battle.ganstar.fps&amp;referrer=utm_source%3Dmore%26utm_medium%3Dbanner" data-app="10" data-ios="1547911490"><img src="icon/com.battle.ganstar.fps.jpg" alt="" width="72" height="72" loading="lazy"><b>Gun Fury: Shooting Games 3D</b><i>GET<em class="rb">AD</em></i></a>
+</div>
 
-.main {
-width: 100%;
-height: auto;
-overflow: hidden;
-display: block;
-}
+<!-- Browser games on peersgames.com, our own site: plain links, nothing to
+     install. Picked for small first loads and touch controls. -->
+<section class="web">
+  <div class="hd"><h2>Play instantly — no download</h2><p class="sub">Free browser games on our website, peersgames.com</p></div>
+  <div class="rowh"><h3>FPS &amp; shooting</h3><a href="https://peersgames.com/category/shooting/?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=more" data-h5="more-fps">See all ›</a></div>
+  <div class="swipe"><a class="card" href="https://peersgames.com/game/gorilgo-fps-online-shooter/?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=fps" data-h5="gorilgo-fps-online-shooter"><span class="th"><img src="https://img.gamepix.com/games/gorilgo-fps-online-shooter/cover/gorilgo-fps-online-shooter.png?w=240" alt="" width="240" height="180" loading="lazy"><i>&#9654;</i></span><b>Gorilgo FPS</b><em class="rb">AD</em></a><a class="card" href="https://peersgames.com/game/last-squad-3d/?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=fps" data-h5="last-squad-3d"><span class="th"><img src="https://img.gamepix.com/games/last-squad-3d/cover/last-squad-3d.png?w=240" alt="" width="240" height="180" loading="lazy"><i>&#9654;</i></span><b>Last Squad 3D</b><em class="rb">AD</em></a><a class="card" href="https://peersgames.com/game/voxel-mayhem/?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=fps" data-h5="voxel-mayhem"><span class="th"><img src="https://img.gamepix.com/games/voxel-mayhem/cover/voxel-mayhem.png?w=240" alt="" width="240" height="180" loading="lazy"><i>&#9654;</i></span><b>Voxel Mayhem</b><em class="rb">AD</em></a><a class="card" href="https://peersgames.com/game/courageous-sniper/?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=fps" data-h5="courageous-sniper"><span class="th"><img src="https://img.gamepix.com/games/courageous-sniper/cover/courageous-sniper.png?w=240" alt="" width="240" height="180" loading="lazy"><i>&#9654;</i></span><b>Courageous Sniper</b><em class="rb">AD</em></a></div>
+  <div class="rowh"><h3>Moto &amp; bike</h3><a href="https://peersgames.com/category/racing/?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=more" data-h5="more-moto">See all ›</a></div>
+  <div class="swipe"><a class="card" href="https://peersgames.com/game/moto-maniac-2/?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=moto" data-h5="moto-maniac-2"><span class="th"><img src="https://img.gamepix.com/games/moto-maniac-2/cover/moto-maniac-2.png?w=240" alt="" width="240" height="180" loading="lazy"><i>&#9654;</i></span><b>Moto Maniac 2</b><em class="rb">AD</em></a><a class="card" href="https://peersgames.com/game/super-bike-racing/?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=moto" data-h5="super-bike-racing"><span class="th"><img src="https://img.gamepix.com/games/super-bike-racing/cover/super-bike-racing.png?w=240" alt="" width="240" height="180" loading="lazy"><i>&#9654;</i></span><b>Super Bike Racing</b><em class="rb">AD</em></a><a class="card" href="https://peersgames.com/game/moto-fury/?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=moto" data-h5="moto-fury"><span class="th"><img src="https://img.gamepix.com/games/moto-fury/cover/moto-fury.png?w=240" alt="" width="240" height="180" loading="lazy"><i>&#9654;</i></span><b>Moto Fury</b><em class="rb">AD</em></a><a class="card" href="https://peersgames.com/game/moto-maniac/?utm_source=mo-mb&amp;utm_medium=more_page&amp;utm_campaign=moto" data-h5="moto-maniac"><span class="th"><img src="https://img.gamepix.com/games/moto-maniac/cover/moto-maniac.png?w=240" alt="" width="240" height="180" loading="lazy"><i>&#9654;</i></span><b>Moto Maniac</b><em class="rb">AD</em></a></div>
+</section>
+</div>
 
-.item_a {
-width: 100%;
-height: 60px;
-overflow: hidden;
-background: url(bg.png);
-display: block;
-}
-
-li.ico {
-width: 48px;
-height: 48px;
-padding-left: 2px;
-padding-top: 4px;
-float: left;
-}
-
-.ico_game {
-left: 4px;
-top: 3px;
-z-index: 1;
-position: relative;
-}
-
-.game {
-text-align: left;
-padding-left: 10px;
-height: auto;
-overflow: hidden;
-position: absolute;
-left: 48px;
-width: auto;
-}
-
-h3 {
-!font-family:HelveticaNeueLTStd-Bd;
-font-size: 13px;
-line-height: 17px;
-color: #000;
-word-wrap: break-word;
-word -break: break-all;
-margin-top: 10px;
-}
-
-h4 {
-!font-family:HelveticaNeueLTStd-LtCn;
-font-size: 9px;
-line-height: 15px;
-font-weight: normal;
-color: #434343;
-margin-top: 5px;
-}
-
-.title {
-font-family: HelveticaNeueLTStd-BdCn;
-float: center;
-width: 100%;
-height: 40px;
-line-height: 40px;
-text-align: center;
-font-size: 20px;
-font-weight: bold;
-color: rgb(255, 255, 255);
-background: url(title.png);
-}
-
-.button-mao-float {
-position: absolute;
-right: 0;
-background: url(free_button.png);
-background-size: 100%;
-}
-
-@media screen and (min-width: 481px) {
-.button-mao-float {
-margin: 8px 10px;
-width: 108px;
-height: 48px;
-}
-}
-
-@media screen and (max-width: 480px) {
-.button-mao-float {
-background: url(free_button_small.png);
-margin: 12px 7px;
-width: 76px;
-height: 34px;
-}
-}
-
-</style><script type = "text/javascript">var game_list = [
-{ "android_url": "https://play.google.com/store/apps/details?id=com.ta.strike.ops&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1547911490" },
-{ "android_url": "https://play.google.com/store/apps/details?id=com.zombieshooting.survivalhunter.gun3d&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1480803816" },
-{ "android_url": "https://play.google.com/store/apps/details?id=com.fun.marvelat.strikeforce.heroes&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1551770851" },
-{ "android_url": "https://play.google.com/store/apps/details?id=com.gun.hero.survivorio&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1480803816" },
-{ "android_url": "https://play.google.com/store/apps/details?id=com.freeshooting.specialforces.war3d&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1547913326" },
-{ "android_url": "https://play.google.com/store/apps/details?id=com.devgame66.csshot&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1499786854" },
-{ "android_url": "https://play.google.com/store/apps/details?id=com.racingmoto.trafficrider.bikerace&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1480803816" },
-{ "android_url": "https://play.google.com/store/apps/details?id=freegames.zombiesniper.deadtrigger&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1480803816" },
-{ "android_url": "https://play.google.com/store/apps/details?id=com.shootinggames.sniper3d.assassin&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1551770851" },
-{ "android_url": "https://play.google.com/store/apps/details?id=com.gunshooting.counterstrike.fps&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1547913442" },
-{ "android_url": "https://play.google.com/store/apps/details?id=com.battle.ganstar.fps&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1547911490" },
-{ "android_url": "https://play.google.com/store/apps/details?id=mobi.racinggames.extemecar&referrer=utm_source%3Dmore%26utm_medium%3Dbanner", "ios_url": "itms-apps://itunes.apple.com/app/id1555412635" },
-];
-function download_game(id)
-{
-gtag('event', 'click_link', {'event_category': 'click', 'event_label': 'link', 'value': id });
-if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent))
-{
-location.href = game_list[id].ios_url;
-}
-else if (/(Android)/i.test(navigator.userAgent))
-{
-location.href = game_list[id].android_url;
-}
-else
-{
-location.href = game_list[id].android_url;
-}
-}
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RM37QWEYQ9"></script>
 <script>
-window.dataLayer=window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+// iPhone and iPad go to the App Store; a game with no iPhone version is hidden there.
+if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  var rows = document.querySelectorAll('a[data-ios]');
+  for (var i = 0; i < rows.length; i++) {
+    var id = rows[i].getAttribute('data-ios');
+    if (id) rows[i].href = 'itms-apps://itunes.apple.com/app/id' + id;
+    else rows[i].hidden = true;
+  }
+}
+// Google Analytics loads after the page is up, so it never holds the page back.
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'G-RM37QWEYQ9');
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-RM37QWEYQ9';
+    document.head.appendChild(s);
+  }, 1200);
+});
+// Count the tap, then follow the link (at most 300 ms later).
+// click_link: an app (label "featured" for the big card); click_h5: a web game.
+document.addEventListener('click', function (e) {
+  var a = e.target;
+  while (a && !(a.tagName === 'A' && (a.hasAttribute('data-app') || a.hasAttribute('data-h5')))) a = a.parentNode;
+  if (!a || a.nodeType !== 1) return;
+  e.preventDefault();
+  var href = a.href, gone = false;
+  function go() { if (!gone) { gone = true; location.href = href; } }
+  var app = a.getAttribute('data-app');
+  if (app) gtag('event', 'click_link', { event_category: 'click', event_label: app === 'featured' ? 'featured' : 'link', value: app === 'featured' ? 100 : +app, transport_type: 'beacon', event_callback: go });
+  else gtag('event', 'click_h5', { event_category: 'click', event_label: a.getAttribute('data-h5'), transport_type: 'beacon', event_callback: go });
+  setTimeout(go, 300);
+});
 </script>
-</head><body><center><div class="main" id="mainbox"><a href = "javascript: void(0); " onclick="download_game(0)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/FPS Strike Ops.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>0. FPS Strike Ops </h3><h4>Multiplayer (MP) PvP Offline Shooter and to be a sniper</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(1)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/zombie 3d gun shooter.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>1. Zombie 3D Gun Shooter</h3><h4>One of the best action and zombie shooting games.</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(2)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/strike force heroes.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>2. Brave Strike: PvP Firefight 3D</h3><h4>The combat is real, and you can be the hero.</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(3)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/gunhero.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>3. Gun Hero</h3><h4>Battle evil, unleash skills, fight to win! Never surrender!</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(4)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/special ops.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>4. Special Ops</h3><h4>The Most Skill-Based Mobile FPS</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(5)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/gun strike.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>5. Gun Strike 3D</h3><h4>Best Counter Terrorism Shooting Game</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(6)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/trafficrider.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>6. Traffic Moto Rider</h3><h4>Rev up your engines for a thrilling ride!</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(7)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/elite killer.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>7. Zombie 3D Sniper Shooter</h3><h4>Armies of mindless zombies are taking over the world!</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(8)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/sniper 3d shooter.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>8. Sniper 3D Shooter</h3><h4>Addicting sniper 3d assassin games offline!</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(9)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/elite strike.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>9. Elite Strike</h3><h4>Enjoy one of the best offline shooting game.</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(10)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/gun battle royale.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>10. Gun Battle Royale </h3><h4>Enjoying shooters and cartoon-style gun games?</h4></li><li class="button-mao-float"></li></ul></div></a><a href = "javascript: void(0); " onclick="download_game(11)"><div class="item_a"><ul style = "position: absolute; width: 100% " ><li class="ico"><img src = "icon/drive for speed.jpg" width="48" height="48" border="0" class="ico_game" onerror="this.src = 'image-not-found.png';" /></li><li class="game"><h3>11. Drive for Speed</h3><h4>Drive and race in huge 3D world!</h4></li><li class="button-mao-float"></li></ul></div></a></div></center></body></html>
+</body>
+</html>
